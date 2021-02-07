@@ -1,0 +1,81 @@
+---  
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: kube-anchor
+  labels:
+    app: kube-anchor  
+webhooks:
+- name: kube-anchor.kube-system.svc
+  rules:
+  - operations: [ "*"]
+    apiGroups: ["*"]
+    apiVersions: ["*"]
+    resources: ["*"]
+    scope: "Namespaced"
+  namespaceSelector:
+    matchLabels:
+      kube-anchor: enabled
+  clientConfig:
+    service:
+      name: kube-anchor
+      namespace: kube-system
+      path: "/freeze"
+    caBundle: ${CA_Base64}
+  admissionReviewVersions: ["v1", "v1beta1"]
+  sideEffects: None
+  timeoutSeconds: 5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: kube-anchor
+  name: kube-anchor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-anchor
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kube-anchor
+    spec:
+      containers:
+      - image: docker.io/jeswinkninan/kube-anchor:alpha-v0.1.2
+        name: kube-anchor
+        ports:
+        - containerPort: 443
+        volumeMounts:
+        - name: cert
+          mountPath: "/cert"
+          readOnly: true
+      volumes:
+      - name: cert
+        secret:
+          secretName: kube-anchor-webhook-server-tls
+status: {}
+---     
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kube-anchor
+  name: kube-anchor
+  namespace: kube-system
+spec:
+  ports:
+  - name: kube-anchor-tcp-port
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: kube-anchor
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
