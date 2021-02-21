@@ -63,3 +63,9 @@ Try deleting already running deployment in a different namespace which is labell
 kubectl delete deploy nginx-deployment -n test
 Error from server: admission webhook "kube-anchor.kube-system.svc" denied the request: Cluster Freeze Window Enabled via Kube-Anchor ☸ 
 ```
+
+For Disabling the Kube-Anchor Freeze
+
+```
+kubectl label ns test0-kube-anchor kube-anchor=disabled
+```
