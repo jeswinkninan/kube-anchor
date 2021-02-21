@@ -67,5 +67,5 @@ Error from server: admission webhook "kube-anchor.kube-system.svc" denied the re
 For Disabling the Kube-Anchor Freeze
 
 ```
-kubectl label ns test0-kube-anchor kube-anchor=disabled
+kubectl label ns test0-kube-anchor kube-anchor=disabled --overwrite=true
 ```
