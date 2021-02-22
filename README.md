@@ -1,5 +1,6 @@
 ![Go Report Card](https://goreportcard.com/badge/github.com/JESWINKNINAN/kube-anchor)
 
+
 # Kube-Anchor
 
 Kube-Anchor is a Kubernetes Admission Controller of type ValidatingWebhook.
@@ -71,3 +72,5 @@ For Disabling the Kube-Anchor Freeze
 ```
 kubectl label ns test0-kube-anchor kube-anchor=disabled --overwrite=true
 ```
+
+![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
