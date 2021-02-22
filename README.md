@@ -1,6 +1,4 @@
-![Go Report Card](https://goreportcard.com/badge/github.com/JESWINKNINAN/kube-anchor)]
-
-(https://goreportcard.com/report/github.com/JESWINKNINAN/kube-anchor)
+![Go Report Card](https://goreportcard.com/badge/github.com/JESWINKNINAN/kube-anchor)
 
 # Kube-Anchor
 
