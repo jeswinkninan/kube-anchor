@@ -8,6 +8,16 @@ It is implementing an admission controller for making sure that actions such as 
 
 ![Go Report Card](https://goreportcard.com/badge/github.com/JESWINKNINAN/kube-anchor)  ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 
+# Usecases
+
+- Avoid accidential resource modification(s) including deletion during a Production Freeze Window
+
+- Large companies that cannot communicate to everyone at once and want to lock production
+  - During Kubernetes upgrade, to prevent any workload updates
+  - During incidents or outages
+  - During planned maintaince of infrastructure for example
+
+- Keep Namespace Scoped Workloads as Immutable In a Multi-Tenant Environment
 
 # Installation
 
