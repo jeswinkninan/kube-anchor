@@ -1,5 +1,7 @@
 # Kube-Anchor
 
+![plot](./internal/kube-anchor.jpg)
+
 Kube-Anchor is a Kubernetes Admission Controller of type ValidatingWebhook.
 
 It is implementing an admission controller for making sure that actions such as "CREATE", "UPDATE", "DELETE", "PATCH" against the Workload resources such as deployment, statefulset, pods etc are validated and accepted/denied gracefully.  This helps the the SREs, Devops, Kubernetes Cluster Admins in making sure that the Production Freeze is logically enabled in a cluster and doesn't need to worry about accidential resource modification(s) during a Production Freeze Window.
