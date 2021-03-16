@@ -1,3 +1,6 @@
+out
+out.txt
+test.txt
 
 # Binaries for programs and plugins
 *.exe
@@ -6,9 +9,6 @@
 *.so
 *.dylib
 bin
-
-# Test binary, build with `go test -c`
-*.test
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
@@ -22,3 +22,6 @@ bin
 *.swp
 *.swo
 *~
+main
+.DS_Store
+*.patch

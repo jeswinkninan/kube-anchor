@@ -1,3 +1,7 @@
 domain: operator.kube-anchor.co
 repo: operator.kube-anchor.co
+resources:
+- group: core
+  kind: KubeAnchor
+  version: v1
 version: "2"
