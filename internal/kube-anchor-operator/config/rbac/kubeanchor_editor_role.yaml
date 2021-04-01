@@ -1,0 +1,24 @@
+# permissions for end users to edit kubeanchors.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kubeanchor-editor-role
+rules:
+- apiGroups:
+  - core.operator.kube-anchor.co
+  resources:
+  - kubeanchors
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - core.operator.kube-anchor.co
+  resources:
+  - kubeanchors/status
+  verbs:
+  - get
